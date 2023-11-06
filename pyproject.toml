@@ -1,0 +1,43 @@
+
+[project]
+name = ""
+version = ""
+description = ""
+authors = [{ name = "redjax", email = "none@none.com" }]
+dependencies = [
+    "pydantic>=2.4.2",
+    "pydantic-settings>=2.0.3",
+    "dynaconf>=3.2.4",
+    "red-utils>=0.2.7",
+    "loguru>=0.7.2",
+]
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.pdm.scripts]
+
+#################
+# Start Scripts #
+#################
+start = { shell = "cd src && pdm run python splice_serum_copy" }
+
+###############
+# Format/Lint #
+###############
+
+# Check only, don't fix
+check = { cmd = "black ." }
+# Check and fix
+format = { cmd = "ruff check . --fix" }
+
+######################
+# Export Requirement #
+######################
+
+#  Export production requirements
+export = { cmd = "pdm export --prod -o requirements.txt --without-hashes" }
+#  Export only development requirements
+export-dev = { cmd = "pdm export -d -o requirements.dev.txt --without-hashes" }
+
+[tool.pdm.dev-dependencies]
+dev = ["black>=23.10.1", "ruff>=0.1.4", "pytest>=7.4.3"]

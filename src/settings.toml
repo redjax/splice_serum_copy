@@ -1,0 +1,31 @@
+[default]
+
+env = "prod"
+container_env = false
+log_level = "INFO"
+
+src_dir = { "type" = "source", "name" = "" }
+tar_dirs = [
+    { "type" = "target", name = "", path = "" },
+    { "type" = "target", name = "", path = "" },
+]
+
+[dev]
+
+env = "dev"
+container_env = false
+log_level = "DEBUG"
+
+src_dir = { "type" = "source", "name" = "" }
+tar_dirs = [
+    { "type" = "target", name = "", path = "" },
+    { "type" = "target", name = "", path = "" },
+]
+
+[prod]
+
+src_dir = { "type" = "source", "name" = "" }
+tar_dirs = [
+    { "type" = "target", name = "", path = "" },
+    { "type" = "target", name = "", path = "" },
+]
